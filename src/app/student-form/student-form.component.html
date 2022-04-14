@@ -11,31 +11,38 @@
                 name="name"
                 id="name" 
                 formControlName="name"
-                class="form-control" required> </div>
+                class="form-control" required> 
             </div>
+        </div>
 
          <!-- address -->
-            <div class="row">
+        <div class="row">
               <div class="col-md-6 mt-md-0 mt-3"><label for="address">Address</label>
                   <textarea class="form-control" 
-                  placeholder="Leave a address here" 
-                  name="address"
-                  formControlName="address"
-                  id="address" ></textarea>
-                </div>
-
-        <!-- gender -->
+                    placeholder="Leave a address here" 
+                    name="address"
+                    formControlName="address"
+                    id="address" >
+                 </textarea>
+             </div>
+             
+             <!-- gender -->
              <div class="col-md-6 mt-md-0 mt-3"> 
-                 <label for="gender">Gender</label>
-                       <div class="d-flex align-items-center mt-2"> 
-                          <label class="option" for="male"> 
-                              <input type="radio" name="radio" id="male">Male <span class="checkmark"></span> 
-                            </label> 
-                                  <label class="option ms-4" for="female"> 
-                                       <input type="radio" name="radio" id="female">Female <span class="checkmark"></span>
-                                  </label>
+                      <div class="d-flex align-items-center mt-2">
+                          
+                        <label class="option" for="gender">Gender:</label>
+                        <div>
+                          <input id="male" type="radio" value="male" name="gender" formControlName="gender" (change)="changeGender($event)">
+                          Male <span class="checkmark"></span>
                        </div>
-                </div>
+               
+                       <div>
+                          <input id="female" type="radio" value="female" name="gender" formControlName="gender" (change)="changeGender($event)">
+                          Female <span class="checkmark"></span>
+                       </div>
+                       
+                      </div>
+               </div>`
            </div>
 
          <!-- email -->
@@ -48,7 +55,7 @@
                     required> 
                   </div>
 
-        <!-- phonenumber -->
+            <!-- phonenumber -->
                 <div class="col-md-6 mt-md-0 mt-3"> 
                     <label for="contuct">Phone Number</label> <input type="tel" class="form-control" 
                     name="contuct"
@@ -58,15 +65,14 @@
                   </div>
             </div>
 
-        <!-- Country -->
+         <!-- Country -->
             <div class=" my-md-2 my-3">
                 <label for="country">Country</label> 
-                    <select id="sub" for="country" required>
+                    <select id="country" formControlName="country" for="country"  required>
                         <option value="">Choose Option</option>
                         <option 
                         id="country"
-                       
-                        value="c" *ngFor="let c of countryDetails" >{{c}}</option>
+                        [value]="c" *ngFor="let c of countryDetails" >{{c}}</option>
                     </select>
             </div>
 

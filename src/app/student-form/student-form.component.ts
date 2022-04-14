@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CountryService } from '../service/country.service';
 
 @Component({
@@ -31,12 +31,17 @@ export class StudentFormComponent implements OnInit {
 
     name:new FormControl(),
     address:new FormControl(),
-    gender:new FormControl(),
+    gender:new FormControl('', Validators.required),
     email:new FormControl(),
     contuct:new FormControl(),
     country:new FormControl(),
 
    })
+
+   changeGender(e:any) {
+    console.log(e.target.value);
+  }
+  
 
 
 }
