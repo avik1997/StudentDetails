@@ -29,7 +29,7 @@
              <!-- gender -->
              <div class="col-md-6 mt-md-0 mt-3"> 
                       <div class="d-flex align-items-center mt-2">
-                          
+
                         <label class="option" for="gender">Gender:</label>
                         <div>
                           <input id="male" type="radio" value="male" name="gender" formControlName="gender" (change)="changeGender($event)">
@@ -86,11 +86,33 @@
 
          <!-- submit -->
             <div class="d-flex justify-content-between align-items-center">
-                <div class="text-right"> <button class="btn btn-success register btn-block">Submit</button></div>
+                <div class="text-right"> <button class="btn btn-success register btn-block" >Submit</button></div>
             </div>
             
         </div>
       </div>
-
-
 </form>
+
+<table class="table table-dark table-sm">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of formData">
+            <td>{{d.name}}</td>
+            <td>{{d.address}}</td>
+            <td>{{d.gender}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.contuct}}</td>
+            <td>{{d.country}}</td>      
+        </tr>
+    </tbody>
+
+  </table>

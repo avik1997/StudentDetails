@@ -9,10 +9,13 @@ import { CountryService } from '../service/country.service';
 })
 export class StudentFormComponent implements OnInit {
 
+  formData:any=[];
   constructor(private _country:CountryService) { }
 
   ngOnInit(): void {
     this.getcountryDetails();
+    this.formData=[];
+    
   }
    countryDetails:any;
 
@@ -24,17 +27,18 @@ export class StudentFormComponent implements OnInit {
 
    public onSubmit(){
     console.log(this.registrationForm);
+    this.formData.push(this.registrationForm.value);
+    
   }
 
   //submit data
    registrationForm=new FormGroup({
-
-    name:new FormControl(),
-    address:new FormControl(),
+    name:new FormControl(''),
+    address:new FormControl(''),
     gender:new FormControl('', Validators.required),
-    email:new FormControl(),
-    contuct:new FormControl(),
-    country:new FormControl(),
+    email:new FormControl(''),
+    contuct:new FormControl(''),
+    country:new FormControl(''),
 
    })
 
